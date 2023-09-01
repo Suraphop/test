@@ -4,10 +4,12 @@ import numpy as np
 
 # define a video capture object
 vid = cv2.VideoCapture(1)
+
   
 while(True):
       
     ret, img = vid.read()
+
     
     img_resize = cv2.resize(img,None,fx=1,fy=1,interpolation=cv2.INTER_LINEAR) #resize
     img_output = img_resize.copy()
@@ -61,7 +63,9 @@ while(True):
 
     cv2.imshow('Output Contour', out)
     cv2.imshow('img_th', dilation)
-    cv2.imshow('img_output', img_output) 
+    cv2.imshow('img_output', img_output)
+    cv2.imshow('img_mask', img_mask) 
+
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
